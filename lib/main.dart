@@ -11,7 +11,7 @@ class KtabyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: const Text('Flutter Demo Home Page')),
+        appBar: AppBar(title: const Text('Ktaby App')),
       ),
     );
   }
