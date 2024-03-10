@@ -1,8 +1,11 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:ktaby_app/Features/Splash/presentation/views/widgets/sliding_text.dart';
+import 'package:ktaby_app/Features/home/presentation/views/home_view.dart';
+import 'package:ktaby_app/constants.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -18,16 +21,14 @@ class _SplashViewBodyState extends State<SplashViewBody>
   @override
   void initState() {
     super.initState();
-    animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 2),
-    );
-    sliderAnimation = Tween<Offset>(
-      begin: const Offset(0, 5),
-      end: const Offset(0, 0),
-    ).animate(animationController);
-    animationController.forward();
- 
+    initSlidingAnimation();
+    navigateToHome();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    animationController.dispose();
   }
 
   @override
@@ -40,5 +41,30 @@ class _SplashViewBodyState extends State<SplashViewBody>
         SlideingText(sliderAnimation: sliderAnimation)
       ],
     );
+  }
+
+  void navigateToHome() {
+    Future.delayed(
+      (const Duration(seconds: 2)),
+      () {
+        Get.to(
+          () => const HomePage(),
+          transition: Transition.fadeIn,
+          duration: kTransitionDuration,
+        );
+      },
+    );
+  }
+
+  void initSlidingAnimation() {
+    animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 2),
+    );
+    sliderAnimation = Tween<Offset>(
+      begin: const Offset(0, 5),
+      end: const Offset(0, 0),
+    ).animate(animationController);
+    animationController.forward();
   }
 }

@@ -1,3 +1,4 @@
 import 'package:flutter/material.dart';
 
- Color defoultScafColor =const Color(0xff100B20);
+ const defoultScafColor = Color(0xff100B20);
+ const kTransitionDuration =Duration(seconds: 2);
