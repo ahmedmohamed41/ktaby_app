@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:ktaby_app/Features/Splash/presentation/views/splash_view.dart';
-import 'package:ktaby_app/constants.dart';
+import 'package:ktaby_app/core/app_router.dart';
+import 'package:ktaby_app/core/constants.dart';
 
 void main() {
   runApp(const KtabyApp());
@@ -12,9 +11,11 @@ class KtabyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: defoultScafColor),
-      home: const SplashView(),
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      theme:
+          ThemeData.dark().copyWith(scaffoldBackgroundColor: defoultScafColor),
+      routerConfig: AppRouter.router,
     );
   }
 }

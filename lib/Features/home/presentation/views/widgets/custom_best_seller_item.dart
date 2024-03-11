@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ktaby_app/constants.dart';
-import 'package:ktaby_app/style.dart';
+import 'package:go_router/go_router.dart';
+import 'package:ktaby_app/core/app_router.dart';
+import 'package:ktaby_app/core/style.dart';
 
-import '../books_detials_view.dart';
 
 class CustomBestSellerItem extends StatelessWidget {
   const CustomBestSellerItem({super.key});
@@ -11,7 +11,7 @@ class CustomBestSellerItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        navigateTo(context,const BooksDetailsView());
+       GoRouter.of(context).push(AppRouter.kBooksDetailsView);
       },
       child: Padding(
         padding: const EdgeInsets.only(left: 20,bottom: 15),
@@ -74,7 +74,7 @@ class CustomBestSellerItem extends StatelessWidget {
                               SizedBox(
                                 width: 2,
                               ),
-                              Text('(2390)'),
+                              Text('(2390)', style: TextStyle(fontWeight: FontWeight.w100),),
                             ],
                           ),
                         ],

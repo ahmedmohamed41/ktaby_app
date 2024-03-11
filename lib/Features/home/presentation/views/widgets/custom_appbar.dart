@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 class CustomAppbar extends StatelessWidget {
   const CustomAppbar({
-    super.key,
+    super.key, required this.widget,
   });
-
+final Widget widget;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -15,9 +15,7 @@ class CustomAppbar extends StatelessWidget {
           SizedBox(
             height: 100,
             width: 150,
-            child: Image.asset(
-              'assets/images/logo2.png',
-            ),
+            child: widget,
           ),
           const Spacer(),
           IconButton(

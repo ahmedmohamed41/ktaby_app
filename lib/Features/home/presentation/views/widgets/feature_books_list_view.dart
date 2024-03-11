@@ -3,24 +3,28 @@ import 'package:ktaby_app/Features/home/presentation/views/widgets/custom_list_v
 
 class FeaturedBooksListView extends StatelessWidget {
   const FeaturedBooksListView({
-    super.key,
+    super.key, required this.height,
   });
-
+final double height;
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.only(left: 25),
       child: SizedBox(
         width: double.infinity,
-        height: 200,
+        height: height,
         child: ListView.separated(
           physics: const BouncingScrollPhysics(),
           scrollDirection: Axis.horizontal,
           itemCount: 9,
-          itemBuilder: (context, index) => const CustomListViewItem(),
+          itemBuilder: (context, index) => const CustomListViewItem(
+            width: 100,
+            height: 150,
+            navigate: false,
+          ),
           separatorBuilder: (context, index) => const SizedBox(
             height: 10,
-            width: 15,
+            width: 8,
           ),
         ),
       ),
