@@ -49,7 +49,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
       () {
         Get.to(
           () => const HomePage(),
-          transition: Transition.fadeIn,
+          transition: Transition.fade,
           duration: kTransitionDuration,
         );
       },
