@@ -3,9 +3,10 @@ import 'package:ktaby_app/Features/home/presentation/views/widgets/custom_list_v
 
 class FeaturedBooksListView extends StatelessWidget {
   const FeaturedBooksListView({
-    super.key, required this.height,
+    super.key, required this.height, required this.width,
   });
 final double height;
+final double width;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -17,8 +18,8 @@ final double height;
           physics: const BouncingScrollPhysics(),
           scrollDirection: Axis.horizontal,
           itemCount: 9,
-          itemBuilder: (context, index) => const CustomListViewItem(
-            width: 100,
+          itemBuilder: (context, index) =>  CustomListViewItem(
+            width: width,
             height: 150,
             navigate: false,
           ),

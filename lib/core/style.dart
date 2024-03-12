@@ -1,28 +1,27 @@
 import 'package:flutter/cupertino.dart';
 
-abstract class Styles{
-  static const textStyle18=TextStyle(
+abstract class Styles {
+  static const textStyle18 = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w600,
   );
-  static const textStyle20=TextStyle(
+  static const textStyle20 = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.normal,
   );
-  static const textStyle30=TextStyle(
+  static const textStyle30 = TextStyle(
     fontSize: 20,
-    fontWeight: FontWeight.normal,
+    fontWeight: FontWeight.w400,
   );
-  static const textStyle14=TextStyle(
+  static const textStyle14 = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.normal,
-
   );
-  static const textStyle16=TextStyle(
+  static const textStyle16 = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w500,
   );
-  static const textStyle50=TextStyle(
+  static const textStyle50 = TextStyle(
     fontSize: 35,
     fontWeight: FontWeight.bold,
   );

@@ -9,7 +9,7 @@ class CustomDetailsAppbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 15,right: 15,top: 35,bottom: 30),
+      padding: const EdgeInsets.only(left: 15,right: 15,top: 35,bottom: 5),
       child: Row(
         children: [
           IconButton(

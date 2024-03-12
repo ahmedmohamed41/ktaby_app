@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:ktaby_app/Features/home/presentation/views/widgets/custom_books_details_item.dart';
 import 'package:ktaby_app/Features/home/presentation/views/widgets/custom_details_appbar.dart';
 import 'package:ktaby_app/Features/home/presentation/views/widgets/feature_books_list_view.dart';
@@ -9,26 +10,28 @@ class BooksDetailsViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const CustomDetailsAppbar(),
-        const CustomBooksDetailsItem(),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 20,top: 30,bottom: 5),
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          const CustomDetailsAppbar(),
+          const CustomBooksDetailsItem(),
+          Align(
+            alignment: Alignment.topLeft,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 20, top: 40, bottom: 10),
               child: Text(
                 'You can also like',
                 style: Styles.textStyle14
                     .copyWith(fontWeight: FontWeight.bold, color: Colors.white),
               ),
             ),
-            const FeaturedBooksListView(height:130),
-
-          ],
-        )
-      ],
+          ),
+          const FeaturedBooksListView(
+            height: 140,
+            width: 90,
+          ),
+        ],
+      ),
     );
   }
 }

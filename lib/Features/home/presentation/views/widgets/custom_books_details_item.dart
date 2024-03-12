@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:ktaby_app/Features/home/presentation/views/widgets/custom_button_details.dart';
+import 'package:ktaby_app/core/app_router.dart';
 import 'package:ktaby_app/core/style.dart';
 
 class CustomBooksDetailsItem extends StatelessWidget {
@@ -28,10 +31,11 @@ class CustomBooksDetailsItem extends StatelessWidget {
           'Harry Potter',
           style: Styles.textStyle50.copyWith(fontFamily: 'Flu'),
         ),
-        Text(
-          'J.k.Rowling',
-          style: Styles.textStyle30.copyWith(
-            fontWeight: FontWeight.w300,
+        Opacity(
+          opacity: 0.7,
+          child: Text(
+            'J.k.Rowling',
+            style: Styles.textStyle30.copyWith(fontStyle: FontStyle.italic),
           ),
         ),
         const Padding(
@@ -62,46 +66,30 @@ class CustomBooksDetailsItem extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              width: 150,
-              height: 40,
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(15),
-                  bottomLeft: Radius.circular(15),
-                ),
-              ),
-              child: Center(
-                child: Text(
-                    '19.99 €',
-                    style: Styles.textStyle14.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black
-                    )
-                ),
-              ),
+            CustomButtonDetails(
+              text: '19.99 €',
+              colorText: Colors.black,
+              backgroundColor: Colors.white,
+              topLeft: 15,
+              bottomLeft: 15,
+              topRight: 0,
+              bottomRight: 0,
+              onTap: () {
+                GoRouter.of(context).push(AppRouter.kHomeView);
+              },
             ),
-            Container(
-              width: 150,
-              height: 40,
-              decoration:  BoxDecoration(
-                color: Colors.red[300],
-                borderRadius: const BorderRadius.only(
-                  topRight: Radius.circular(15),
-                  bottomRight: Radius.circular(15),
-                ),
-              ),
-              child: Center(
-                child: Text(
-                    'Free Preview',
-                    style: Styles.textStyle14.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white
-                    )
-                ),
-              ),
-            )
+            CustomButtonDetails(
+              text: 'Free Preview',
+              colorText: Colors.white,
+              backgroundColor: Colors.red,
+              topLeft: 0,
+              bottomLeft: 0,
+              topRight: 15,
+              bottomRight: 15,
+              onTap: () {
+                GoRouter.of(context).push(AppRouter.kHomeView);
+              },
+            ),
           ],
         )
       ],
