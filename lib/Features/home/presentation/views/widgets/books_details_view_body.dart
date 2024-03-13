@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:ktaby_app/Features/home/presentation/views/widgets/custom_books_details_item.dart';
 import 'package:ktaby_app/Features/home/presentation/views/widgets/custom_details_appbar.dart';
 import 'package:ktaby_app/Features/home/presentation/views/widgets/feature_books_list_view.dart';

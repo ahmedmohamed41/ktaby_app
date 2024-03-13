@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:ktaby_app/Features/home/presentation/views/widgets/custom_appbar.dart';
 import 'package:ktaby_app/Features/home/presentation/views/widgets/feature_books_list_view.dart';
 import 'package:ktaby_app/Features/home/presentation/views/widgets/featured_best_seller_view.dart';
+import 'package:ktaby_app/core/app_router.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -15,6 +17,9 @@ class HomeViewBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CustomAppbar(
+                onPressed: () {
+                  GoRouter.of(context).push(AppRouter.kSearchView);
+                },
                 widget: Image.asset(
                   'assets/images/logo2.png',
                 ),
