@@ -14,7 +14,6 @@ class SearchView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SearchViewBody(),
-
             Padding(
               padding: EdgeInsets.only(left: 15),
               child: Text(

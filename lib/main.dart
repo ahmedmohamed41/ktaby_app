@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ktaby_app/core/app_router.dart';
-import 'package:ktaby_app/core/constants.dart';
+import 'package:ktaby_app/core/utils/app_router.dart';
+import 'package:ktaby_app/core/utils/constants.dart';
 
 void main() {
   runApp(const KtabyApp());

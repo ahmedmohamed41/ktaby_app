@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ktaby_app/core/style.dart';
+import 'package:ktaby_app/core/utils/style.dart';
 
 class CustomButtonDetails extends StatelessWidget {
   const CustomButtonDetails({

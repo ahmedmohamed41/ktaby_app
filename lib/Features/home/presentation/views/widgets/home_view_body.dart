@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:ktaby_app/Features/home/presentation/views/widgets/custom_appbar.dart';
 import 'package:ktaby_app/Features/home/presentation/views/widgets/feature_books_list_view.dart';
 import 'package:ktaby_app/Features/home/presentation/views/widgets/featured_best_seller_view.dart';
-import 'package:ktaby_app/core/app_router.dart';
+import 'package:ktaby_app/core/utils/app_router.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});

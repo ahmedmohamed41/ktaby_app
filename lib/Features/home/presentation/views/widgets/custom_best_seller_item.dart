@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:ktaby_app/core/app_router.dart';
-import 'package:ktaby_app/core/style.dart';
-
+import 'package:ktaby_app/core/utils/app_router.dart';
+import 'package:ktaby_app/core/utils/style.dart';
 
 class CustomBestSellerItem extends StatelessWidget {
   const CustomBestSellerItem({super.key});
@@ -11,10 +10,10 @@ class CustomBestSellerItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-       GoRouter.of(context).push(AppRouter.kBooksDetailsView);
+        GoRouter.of(context).push(AppRouter.kBooksDetailsView);
       },
       child: Padding(
-        padding: const EdgeInsets.only(left: 20,bottom: 15),
+        padding: const EdgeInsets.only(left: 20, bottom: 15),
         child: Row(
           children: [
             Container(
@@ -30,7 +29,7 @@ class CustomBestSellerItem extends StatelessWidget {
                 ),
               ),
             ),
-             SizedBox(
+            SizedBox(
               width: 225,
               height: 150,
               child: Padding(
@@ -42,24 +41,19 @@ class CustomBestSellerItem extends StatelessWidget {
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       'Harry Potter \nand The Goblet on Fire',
-                      style: Styles.textStyle30.copyWith(
-                          fontFamily: 'Flu'
-                      ),
+                      style: Styles.textStyle30.copyWith(fontFamily: 'Flu'),
                     ),
                     const Text(
                       'J.k.Rowling',
-                      style:Styles.textStyle14,
-
+                      style: Styles.textStyle14,
                     ),
-                     Expanded(
+                    Expanded(
                       child: Row(
                         children: [
-                          Text(
-                            '19.99 €',
-                            style: Styles.textStyle18.copyWith(
-                              fontWeight: FontWeight.bold,
-                            )
-                          ),
+                          Text('19.99 €',
+                              style: Styles.textStyle18.copyWith(
+                                fontWeight: FontWeight.bold,
+                              )),
                           const Spacer(),
                           const Row(
                             children: [
@@ -70,11 +64,16 @@ class CustomBestSellerItem extends StatelessWidget {
                               SizedBox(
                                 width: 3,
                               ),
-                              Text('4.8',),
+                              Text(
+                                '4.8',
+                              ),
                               SizedBox(
                                 width: 2,
                               ),
-                              Text('(2390)', style: TextStyle(fontWeight: FontWeight.w100),),
+                              Text(
+                                '(2390)',
+                                style: TextStyle(fontWeight: FontWeight.w100),
+                              ),
                             ],
                           ),
                         ],

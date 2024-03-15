@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../core/app_router.dart';
+import '../../../../../core/utils/app_router.dart';
 
 class CustomDetailsAppbar extends StatelessWidget {
   const CustomDetailsAppbar({super.key});
@@ -9,7 +9,7 @@ class CustomDetailsAppbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 15,right: 15,top: 35,bottom: 5),
+      padding: const EdgeInsets.only(left: 15, right: 15, top: 35, bottom: 5),
       child: Row(
         children: [
           IconButton(

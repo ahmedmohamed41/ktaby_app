@@ -5,9 +5,9 @@ import 'package:ktaby_app/Features/home/presentation/views/home_view.dart';
 import 'package:ktaby_app/Features/search/presentation/views/search_view.dart';
 
 abstract class AppRouter {
-  static const kHomeView='/HomeView';
-  static const kBooksDetailsView='/BooksDetailsView';
-  static const kSearchView='/kSearchView';
+  static const kHomeView = '/HomeView';
+  static const kBooksDetailsView = '/BooksDetailsView';
+  static const kSearchView = '/kSearchView';
   static final router = GoRouter(
     routes: [
       GoRoute(

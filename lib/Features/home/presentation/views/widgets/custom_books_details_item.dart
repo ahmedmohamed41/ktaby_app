@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ktaby_app/Features/home/presentation/views/widgets/custom_button_details.dart';
-import 'package:ktaby_app/core/app_router.dart';
-import 'package:ktaby_app/core/style.dart';
+import 'package:ktaby_app/core/utils/app_router.dart';
+import 'package:ktaby_app/core/utils/style.dart';
 
 class CustomBooksDetailsItem extends StatelessWidget {
   const CustomBooksDetailsItem({super.key});

@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 
 import 'package:go_router/go_router.dart';
 import 'package:ktaby_app/Features/Splash/presentation/views/widgets/sliding_text.dart';
-import 'package:ktaby_app/core/app_router.dart';
+import 'package:ktaby_app/core/utils/app_router.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});

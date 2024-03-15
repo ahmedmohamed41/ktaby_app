@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 class CustomAppbar extends StatelessWidget {
   const CustomAppbar({
     super.key,
-    required this.widget, this.onPressed,
+    required this.widget,
+    this.onPressed,
   });
   final Widget widget;
   final void Function()? onPressed;
