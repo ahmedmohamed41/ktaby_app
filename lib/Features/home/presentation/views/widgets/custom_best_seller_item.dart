@@ -3,8 +3,15 @@ import 'package:go_router/go_router.dart';
 import 'package:ktaby_app/core/utils/app_router.dart';
 import 'package:ktaby_app/core/utils/style.dart';
 
-class CustomBestSellerItem extends StatelessWidget {
+class CustomBestSellerItem extends StatefulWidget {
   const CustomBestSellerItem({super.key});
+
+  @override
+  State<CustomBestSellerItem> createState() => _CustomBestSellerItemState();
+}
+
+class _CustomBestSellerItemState extends State<CustomBestSellerItem> {
+   bool boolStar = false;
 
   @override
   Widget build(BuildContext context) {
@@ -55,22 +62,34 @@ class CustomBestSellerItem extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                               )),
                           const Spacer(),
-                          const Row(
+                          Row(
                             children: [
-                              Icon(
-                                Icons.star,
-                                color: Colors.amber,
+                              IconButton(
+                                onPressed: () {
+                                 
+                                  setState(() {
+                                     boolStar = !boolStar;
+                                  });
+                                },
+
+                                icon:boolStar==true? const Icon(
+                                  Icons.star,
+                                  color: Color.fromARGB(255, 163, 145, 89),
+                                ):const Icon(
+                                  Icons.star,
+                                  color: Colors.amber,
+                                ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 3,
                               ),
-                              Text(
+                              const Text(
                                 '4.8',
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 2,
                               ),
-                              Text(
+                              const Text(
                                 '(2390)',
                                 style: TextStyle(fontWeight: FontWeight.w100),
                               ),

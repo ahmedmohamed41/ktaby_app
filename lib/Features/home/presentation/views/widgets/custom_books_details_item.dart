@@ -4,8 +4,15 @@ import 'package:ktaby_app/Features/home/presentation/views/widgets/custom_button
 import 'package:ktaby_app/core/utils/app_router.dart';
 import 'package:ktaby_app/core/utils/style.dart';
 
-class CustomBooksDetailsItem extends StatelessWidget {
+class CustomBooksDetailsItem extends StatefulWidget {
   const CustomBooksDetailsItem({super.key});
+
+  @override
+  State<CustomBooksDetailsItem> createState() => _CustomBooksDetailsItemState();
+}
+
+class _CustomBooksDetailsItemState extends State<CustomBooksDetailsItem> {
+  bool boolStar = false;
 
   @override
   Widget build(BuildContext context) {
@@ -38,25 +45,37 @@ class CustomBooksDetailsItem extends StatelessWidget {
             style: Styles.textStyle30.copyWith(fontStyle: FontStyle.italic),
           ),
         ),
-        const Padding(
-          padding: EdgeInsets.symmetric(vertical: 15),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 15),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(
-                Icons.star,
-                color: Colors.amber,
+              IconButton(
+                onPressed: () {
+                  setState(() {
+                    boolStar = !boolStar;
+                  });
+                },
+                icon: boolStar == true
+                    ? const Icon(
+                        Icons.star,
+                        color: Color.fromARGB(255, 163, 145, 89),
+                      )
+                    : const Icon(
+                        Icons.star,
+                        color: Colors.amber,
+                      ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 3,
               ),
-              Text(
+              const Text(
                 '4.8',
               ),
-              SizedBox(
+              const SizedBox(
                 width: 2,
               ),
-              Text(
+              const Text(
                 '(2390)',
                 style: TextStyle(fontWeight: FontWeight.w100),
               ),

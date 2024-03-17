@@ -13,8 +13,9 @@ class KtabyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      theme:
-          ThemeData.dark().copyWith(scaffoldBackgroundColor: defoultScafColor),
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: defoultScafColor,
+      ),
       routerConfig: AppRouter.router,
     );
   }

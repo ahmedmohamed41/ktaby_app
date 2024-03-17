@@ -17,7 +17,7 @@ class BooksDetailsViewBody extends StatelessWidget {
           Align(
             alignment: Alignment.topLeft,
             child: Padding(
-              padding: const EdgeInsets.only(left: 20, top: 40, bottom: 10),
+              padding: const EdgeInsets.only(left: 20, top: 25, bottom: 10),
               child: Text(
                 'You can also like',
                 style: Styles.textStyle14
