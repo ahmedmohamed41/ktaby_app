@@ -5,13 +5,13 @@ import 'package:ktaby_app/Features/home/data/repos/home_repo.dart';
 import 'package:ktaby_app/core/errors/failures.dart';
 import 'package:ktaby_app/core/utils/api_service.dart';
 
-class HomeRepoImle extends HomeRepo {
+class HomeRepoImpl extends HomeRepo {
   @override
   Future<Either<Failure, List<BookModel>>> fetchNewsetSellerBooks() async {
     try {
       var data = await ApiService().get(
           endPoints:
-              'volumes?Filtering=free-ebooks&q=subject:Programming&Sorting=newest');
+              'volumes?Filtering=free-ebooks&q=subject:Science&Sorting=newest');
       List<BookModel> books = [];
       for (var element in data['items']) {
         books.add(BookModel.fromJson(element));
@@ -26,8 +26,21 @@ class HomeRepoImle extends HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<BookModel>>> fetchBooksDetials() {
+  Future<Either<Failure, List<BookModel>>> fetchBooksDetials() async{
 
-    throw UnimplementedError();
-  }
+ try {
+      var data = await ApiService().get(
+          endPoints:
+              'volumes?Filtering=free-ebooks&q=subject:Science');
+      List<BookModel> books = [];
+      for (var element in data['items']) {
+        books.add(BookModel.fromJson(element));
+      }
+      return right(books);
+    } on Exception catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      }
+      return left(ServerFailure(e.toString()));
+    }  }
 }
