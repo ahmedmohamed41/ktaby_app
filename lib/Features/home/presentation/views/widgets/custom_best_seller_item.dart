@@ -44,24 +44,27 @@ class CustomBestSellerItem extends StatelessWidget {
                     Text(
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      'Harry Potter \nand The Goblet on Fire',
+                      '${books.volumeInfo!.title}',
                       style: Styles.textStyle30.copyWith(fontFamily: 'Flu'),
                     ),
-                    const Text(
-                      'J.k.Rowling',
+                    Text(
+                      books.volumeInfo!.authors![0],
                       style: Styles.textStyle14,
                     ),
                     Expanded(
                       child: Row(
                         children: [
-                          Text('19.99 €',
-                              style: Styles.textStyle18.copyWith(
-                                fontWeight: FontWeight.bold,
-                              )),
+                          Text(
+                            'Free',
+                            style: Styles.textStyle18.copyWith(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                           const Spacer(),
                           Row(
                             children: [
                               IconButton(
+                              
                                 onPressed: () {
                                   //   boolStar = !boolStar;
                                 },
@@ -79,15 +82,15 @@ class CustomBestSellerItem extends StatelessWidget {
                               const SizedBox(
                                 width: 3,
                               ),
-                              const Text(
-                                '4.8',
+                               Text(
+                                '${books.volumeInfo!.averageRating??4.3}',
                               ),
                               const SizedBox(
                                 width: 2,
                               ),
-                              const Text(
-                                '(2390)',
-                                style: TextStyle(fontWeight: FontWeight.w100),
+                               Text(
+                                '(${books.volumeInfo!.ratingsCount??6})',
+                                style:const TextStyle(fontWeight: FontWeight.w100),
                               ),
                             ],
                           ),

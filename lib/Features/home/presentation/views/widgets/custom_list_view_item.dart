@@ -31,7 +31,7 @@ class CustomListViewItem extends StatelessWidget {
           child: CachedNetworkImage(
             fit: BoxFit.fill,
             imageUrl: urlImagebooks,
-           errorWidget: (context, url, error) =>const Icon(Icons.ac_unit_sharp),
+           errorWidget: (context, url, error) =>const Icon(Icons.error),
           ),
         ),
       ),
