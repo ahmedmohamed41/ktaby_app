@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ktaby_app/core/utils/app_router.dart';
@@ -23,17 +24,14 @@ class CustomListViewItem extends StatelessWidget {
           GoRouter.of(context).push(AppRouter.kBooksDetailsView);
         }
       },
-      child: Container(
-        width: width,
-        height: height,
-        decoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(Radius.circular(15)),
-          image: DecorationImage(
-            image: NetworkImage(
-                urlImagebooks
-                //  'assets/images/image25454.png',
-                ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(15),
+        child: AspectRatio(
+          aspectRatio: 2.6/4,
+          child: CachedNetworkImage(
             fit: BoxFit.fill,
+            imageUrl: urlImagebooks,
+           errorWidget: (context, url, error) =>const Icon(Icons.ac_unit_sharp),
           ),
         ),
       ),
