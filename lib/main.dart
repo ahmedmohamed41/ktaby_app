@@ -1,5 +1,9 @@
-import 'package:bloc/bloc.dart';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ktaby_app/Features/home/data/repos/home_repo_impl.dart';
+import 'package:ktaby_app/Features/home/presentation/manger/books_details_cubit/books_details_cubit.dart';
+import 'package:ktaby_app/Features/home/presentation/manger/featured_newset_cubit/featured_newset_cubit.dart';
 import 'package:ktaby_app/core/utils/app_router.dart';
 import 'package:ktaby_app/core/utils/bloc_observer.dart';
 import 'package:ktaby_app/core/utils/constants.dart';
@@ -15,12 +19,26 @@ class KtabyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: defoultScafColor,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => FeaturedNewsetCubit(
+            HomeRepoImpl(),
+          )..fetchFeaturedNewset(),
+        ),
+         BlocProvider(
+          create: (context) => BooksDetailsCubit(
+            HomeRepoImpl(),
+          )..fetchBooksDetails(),
+        ),
+      ],
+      child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData.dark().copyWith(
+          scaffoldBackgroundColor: defoultScafColor,
+        ),
+        routerConfig: AppRouter.router,
       ),
-      routerConfig: AppRouter.router,
     );
   }
 }

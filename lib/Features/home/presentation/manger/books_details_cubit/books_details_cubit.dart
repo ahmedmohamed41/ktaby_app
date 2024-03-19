@@ -14,13 +14,12 @@ class BooksDetailsCubit extends Cubit<BooksDetailsState> {
 
   Future<void> fetchBooksDetails() async {
     emit(BooksDetailsLoading());
-    var result = await homeRepo.fetchNewsetSellerBooks();
+    var result = await homeRepo.fetchBooksDetials();
 
     result.fold((failure) {
       emit(BooksDetailsFailure(failure.errMessage));
     }, (books) {
       emit(BooksDetailsSuccess(books));
-      
     });
   }
 }

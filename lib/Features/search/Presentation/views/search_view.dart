@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ktaby_app/Features/search/Presentation/views/widgets/search_result_list_view.dart';
 import 'package:ktaby_app/Features/search/Presentation/views/widgets/search_view_body.dart';
 
 class SearchView extends StatelessWidget {
@@ -28,7 +27,8 @@ class SearchView extends StatelessWidget {
               height: 20,
             ),
             Expanded(
-              child: SearchResultListView(),
+              child: Text(''),
+              //SearchResultListView(),
             ),
           ],
         ),

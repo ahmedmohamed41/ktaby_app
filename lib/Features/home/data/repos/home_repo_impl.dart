@@ -5,7 +5,7 @@ import 'package:ktaby_app/Features/home/data/repos/home_repo.dart';
 import 'package:ktaby_app/core/errors/failures.dart';
 import 'package:ktaby_app/core/utils/api_service.dart';
 
-class HomeRepoImpl extends HomeRepo {
+class HomeRepoImpl implements HomeRepo {
   @override
   Future<Either<Failure, List<BookModel>>> fetchNewsetSellerBooks() async {
     try {
@@ -26,12 +26,10 @@ class HomeRepoImpl extends HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<BookModel>>> fetchBooksDetials() async{
-
- try {
-      var data = await ApiService().get(
-          endPoints:
-              'volumes?Filtering=free-ebooks&q=subject:Science');
+  Future<Either<Failure, List<BookModel>>> fetchBooksDetials() async {
+    try {
+      var data = await ApiService()
+          .get(endPoints: 'volumes?Filtering=free-ebooks&q=Science');
       List<BookModel> books = [];
       for (var element in data['items']) {
         books.add(BookModel.fromJson(element));
@@ -42,5 +40,6 @@ class HomeRepoImpl extends HomeRepo {
         return left(ServerFailure.fromDioException(e));
       }
       return left(ServerFailure(e.toString()));
-    }  }
+    }
+  }
 }

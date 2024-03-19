@@ -8,12 +8,13 @@ sealed class BooksDetailsState extends Equatable {
 }
 
 final class BooksDetailsInitial extends BooksDetailsState {}
+
 final class BooksDetailsLoading extends BooksDetailsState {}
 
 final class BooksDetailsSuccess extends BooksDetailsState {
   final List<BookModel> books;
 
- const BooksDetailsSuccess(this.books);
+  const BooksDetailsSuccess(this.books);
 }
 
 final class BooksDetailsFailure extends BooksDetailsState {

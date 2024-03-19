@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ktaby_app/Features/home/data/models/book_model/book_model.dart';
 import 'package:ktaby_app/core/utils/app_router.dart';
 import 'package:ktaby_app/core/utils/style.dart';
 
-class CustomBestSellerItem extends StatefulWidget {
-  const CustomBestSellerItem({super.key});
+class CustomBestSellerItem extends StatelessWidget {
+  const CustomBestSellerItem({super.key, required this.books});
 
-  @override
-  State<CustomBestSellerItem> createState() => _CustomBestSellerItemState();
-}
-
-class _CustomBestSellerItemState extends State<CustomBestSellerItem> {
-   bool boolStar = false;
-
+  final bool boolStar = false;
+  final BookModel books;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -26,12 +22,13 @@ class _CustomBestSellerItemState extends State<CustomBestSellerItem> {
             Container(
               width: 100,
               height: 150,
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(15)),
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(Radius.circular(15)),
                 image: DecorationImage(
-                  image: AssetImage(
-                    'assets/images/image25454.png',
-                  ),
+                  image: NetworkImage(
+                      '${books.volumeInfo!.imageLinks!.smallThumbnail}'
+                      //'assets/images/image25454.png',
+                      ),
                   fit: BoxFit.fill,
                 ),
               ),
@@ -66,19 +63,18 @@ class _CustomBestSellerItemState extends State<CustomBestSellerItem> {
                             children: [
                               IconButton(
                                 onPressed: () {
-                                 
-                                  setState(() {
-                                     boolStar = !boolStar;
-                                  });
+                                  //   boolStar = !boolStar;
                                 },
-
-                                icon:boolStar==true? const Icon(
-                                  Icons.star,
-                                  color: Color.fromARGB(255, 163, 145, 89),
-                                ):const Icon(
-                                  Icons.star,
-                                  color: Colors.amber,
-                                ),
+                                icon: boolStar == true
+                                    ? const Icon(
+                                        Icons.star,
+                                        color:
+                                            Color.fromARGB(255, 163, 145, 89),
+                                      )
+                                    : const Icon(
+                                        Icons.star,
+                                        color: Colors.amber,
+                                      ),
                               ),
                               const SizedBox(
                                 width: 3,

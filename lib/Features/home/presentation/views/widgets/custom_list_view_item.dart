@@ -8,10 +8,12 @@ class CustomListViewItem extends StatelessWidget {
     required this.width,
     required this.height,
     required this.navigate,
+    required this.urlImagebooks,
   });
   final double width;
   final double height;
   final bool navigate;
+  final String urlImagebooks;
 
   @override
   Widget build(BuildContext context) {
@@ -24,12 +26,13 @@ class CustomListViewItem extends StatelessWidget {
       child: Container(
         width: width,
         height: height,
-        decoration: const BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(15)),
+        decoration: BoxDecoration(
+          borderRadius: const BorderRadius.all(Radius.circular(15)),
           image: DecorationImage(
-            image: AssetImage(
-              'assets/images/image25454.png',
-            ),
+            image: NetworkImage(
+                urlImagebooks
+                //  'assets/images/image25454.png',
+                ),
             fit: BoxFit.fill,
           ),
         ),
