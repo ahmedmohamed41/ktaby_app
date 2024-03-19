@@ -19,4 +19,12 @@ class FeaturedNewsetCubit extends Cubit<FeaturedNewsetState> {
       emit(FeaturedNewsetSuccess(books));
     });
   }
+
+  bool shemmir = false;
+  bool shimmer() {
+    shemmir = false;
+    emit(ShimmerLoading());
+    shemmir = true;
+    return shemmir;
+  }
 }

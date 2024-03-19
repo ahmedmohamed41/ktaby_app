@@ -26,7 +26,7 @@ class CustomBestSellerItem extends StatelessWidget {
                 borderRadius: const BorderRadius.all(Radius.circular(15)),
                 image: DecorationImage(
                   image: NetworkImage(
-                      '${books.volumeInfo!.imageLinks!.smallThumbnail}'
+                      books.volumeInfo!.imageLinks!.smallThumbnail!
                       //'assets/images/image25454.png',
                       ),
                   fit: BoxFit.fill,

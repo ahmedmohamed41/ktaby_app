@@ -22,3 +22,4 @@ final class FeaturedNewsetFailure extends FeaturedNewsetState {
 
   const FeaturedNewsetFailure(this.errMassage);
 }
+final class ShimmerLoading extends FeaturedNewsetState {}

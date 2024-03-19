@@ -5,6 +5,7 @@ import 'package:ktaby_app/Features/home/presentation/views/widgets/custom_list_v
 import 'package:ktaby_app/core/widgets/custom_error.dart';
 import 'package:ktaby_app/core/widgets/custom_loading_indicator.dart';
 
+
 class FeaturedBooksListView extends StatelessWidget {
   const FeaturedBooksListView({
     super.key,
@@ -13,6 +14,7 @@ class FeaturedBooksListView extends StatelessWidget {
   });
   final double height;
   final double width;
+ 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<FeaturedNewsetCubit, FeaturedNewsetState>(
@@ -27,13 +29,13 @@ class FeaturedBooksListView extends StatelessWidget {
                 physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
                 itemCount: state.books.length,
-                itemBuilder: (context, index) => CustomListViewItem(
-                  width: width,
-                  height: 150,
-                  navigate: false,
-                  urlImagebooks: state
-                      .books[index].volumeInfo!.imageLinks!.smallThumbnail!,
-                ),
+                itemBuilder: (context, index) =>  CustomListViewItem(
+                        width: width,
+                        height: 150,
+                        navigate: false,
+                        urlImagebooks: state.books[index].volumeInfo!
+                            .imageLinks?.smallThumbnail??'',
+                      ),
                 separatorBuilder: (context, index) => const SizedBox(
                   height: 10,
                   width: 8,
@@ -50,3 +52,5 @@ class FeaturedBooksListView extends StatelessWidget {
     );
   }
 }
+
+
