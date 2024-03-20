@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:ktaby_app/Features/home/data/models/book_model/book_model.dart';
 import 'package:ktaby_app/Features/home/presentation/views/widgets/custom_button_details.dart';
-import 'package:ktaby_app/core/utils/app_router.dart';
 import 'package:ktaby_app/core/utils/style.dart';
+// ignore: depend_on_referenced_packages
+import 'package:url_launcher/url_launcher.dart';
 
 class CustomBooksDetailsItem extends StatelessWidget {
   const CustomBooksDetailsItem({super.key, required this.bookModel});
@@ -66,7 +66,7 @@ class CustomBooksDetailsItem extends StatelessWidget {
                 ),
                 Text(
                   '(${bookModel.volumeInfo!.ratingsCount})',
-                  style:const TextStyle(fontWeight: FontWeight.w100),
+                  style: const TextStyle(fontWeight: FontWeight.w100),
                 ),
               ],
             ),
@@ -75,15 +75,18 @@ class CustomBooksDetailsItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CustomButtonDetails(
-                text: '19.99 €',
+                text: 'Free',
                 colorText: Colors.black,
                 backgroundColor: Colors.white,
                 topLeft: 15,
                 bottomLeft: 15,
                 topRight: 0,
                 bottomRight: 0,
-                onTap: () {
-                  GoRouter.of(context).push(AppRouter.kHomeView);
+                onTap: () async {
+                  Uri uri = Uri.parse(bookModel.saleInfo!.buyLink!);
+                  if (await canLaunchUrl(uri)) {
+                    await launchUrl(uri);
+                  }
                 },
               ),
               CustomButtonDetails(
@@ -94,8 +97,11 @@ class CustomBooksDetailsItem extends StatelessWidget {
                 bottomLeft: 0,
                 topRight: 15,
                 bottomRight: 15,
-                onTap: () {
-                  GoRouter.of(context).push(AppRouter.kHomeView);
+                onTap: ()async {
+                  Uri uri = Uri.parse(bookModel.volumeInfo!.previewLink!);
+                  if (await canLaunchUrl(uri)) {
+                    await launchUrl(uri);
+                  }
                 },
               ),
             ],
