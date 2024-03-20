@@ -24,10 +24,7 @@ class HomeViewBody extends StatelessWidget {
                   'assets/images/logo2.png',
                 ),
               ),
-              const FeaturedBooksListView(
-                width: 150,
-                height: 220,
-              ),
+              const FeaturedBooksListView(),
               const SizedBox(
                 height: 30,
               ),

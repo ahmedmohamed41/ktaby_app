@@ -2,19 +2,17 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ktaby_app/Features/home/data/models/book_model/book_model.dart';
 import 'package:ktaby_app/Features/home/data/repos/home_repo.dart';
-import 'package:ktaby_app/Features/home/presentation/manger/featured_newset_cubit/featured_newset_cubit.dart';
 
-part 'books_details_state.dart';
+part 'book_details_state.dart';
 
-class BooksDetailsCubit extends Cubit<BooksDetailsState> {
-  BooksDetailsCubit(this.homeRepo) : super(BooksDetailsInitial());
-
-  static FeaturedNewsetCubit get(context) => BlocProvider.of(context);
+class BooksDetailsCubit extends Cubit<BookDetailsState> {
+  BooksDetailsCubit(this.homeRepo) : super(BookDetailsInitial());
+  static BooksDetailsCubit get(context) => BlocProvider.of(context);
   final HomeRepo homeRepo;
 
-  Future<void> fetchBooksDetails() async {
+  Future<void> fetchBooksDetails({required String category}) async {
     emit(BooksDetailsLoading());
-    var result = await homeRepo.fetchBooksDetials();
+    var result = await homeRepo.fetchBooksDetials(category:category);
 
     result.fold((failure) {
       emit(BooksDetailsFailure(failure.errMessage));

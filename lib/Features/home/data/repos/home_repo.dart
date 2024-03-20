@@ -4,5 +4,6 @@ import 'package:ktaby_app/core/errors/failures.dart';
 
 abstract class HomeRepo {
   Future<Either<Failure, List<BookModel>>> fetchNewsetSellerBooks();
-  Future<Either<Failure, List<BookModel>>> fetchBooksDetials();
+  Future<Either<Failure, List<BookModel>>> fetchBestBooks();
+  Future<Either<Failure, List<BookModel>>> fetchBooksDetials({required String category});
 }

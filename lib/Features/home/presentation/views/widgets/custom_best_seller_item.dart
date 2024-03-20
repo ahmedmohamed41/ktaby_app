@@ -5,15 +5,15 @@ import 'package:ktaby_app/core/utils/app_router.dart';
 import 'package:ktaby_app/core/utils/style.dart';
 
 class CustomBestSellerItem extends StatelessWidget {
-  const CustomBestSellerItem({super.key, required this.books});
+  const CustomBestSellerItem({super.key, required this.bookmodel});
 
   final bool boolStar = false;
-  final BookModel books;
+  final BookModel bookmodel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.kBooksDetailsView);
+        GoRouter.of(context).push(AppRouter.kBooksDetailsView, extra: bookmodel);
       },
       child: Padding(
         padding: const EdgeInsets.only(left: 20, bottom: 15),
@@ -26,7 +26,7 @@ class CustomBestSellerItem extends StatelessWidget {
                 borderRadius: const BorderRadius.all(Radius.circular(15)),
                 image: DecorationImage(
                   image: NetworkImage(
-                      books.volumeInfo!.imageLinks!.smallThumbnail!
+                      bookmodel.volumeInfo!.imageLinks!.smallThumbnail!
                       //'assets/images/image25454.png',
                       ),
                   fit: BoxFit.fill,
@@ -44,11 +44,11 @@ class CustomBestSellerItem extends StatelessWidget {
                     Text(
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      '${books.volumeInfo!.title}',
+                      '${bookmodel.volumeInfo!.title}',
                       style: Styles.textStyle30.copyWith(fontFamily: 'Flu'),
                     ),
                     Text(
-                      books.volumeInfo!.authors![0],
+                      bookmodel.volumeInfo!.authors![0],
                       style: Styles.textStyle14,
                     ),
                     Expanded(
@@ -64,7 +64,6 @@ class CustomBestSellerItem extends StatelessWidget {
                           Row(
                             children: [
                               IconButton(
-                              
                                 onPressed: () {
                                   //   boolStar = !boolStar;
                                 },
@@ -82,15 +81,16 @@ class CustomBestSellerItem extends StatelessWidget {
                               const SizedBox(
                                 width: 3,
                               ),
-                               Text(
-                                '${books.volumeInfo!.averageRating??4.3}',
+                              Text(
+                                '${bookmodel.volumeInfo!.averageRating ?? 4.3}',
                               ),
                               const SizedBox(
                                 width: 2,
                               ),
-                               Text(
-                                '(${books.volumeInfo!.ratingsCount??6})',
-                                style:const TextStyle(fontWeight: FontWeight.w100),
+                              Text(
+                                '(${bookmodel.volumeInfo!.ratingsCount ?? 6})',
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.w100),
                               ),
                             ],
                           ),
