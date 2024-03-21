@@ -6,10 +6,10 @@ class CustomTextFormField extends StatelessWidget {
     required this.labelText,
     required this.inputType,
     this.maxLines = 1,
-    this.onSaved,
+    this.onSubmitted,
     this.onChanged,
     this.onTap,
-    this.validator,
+    
     this.controller,
     this.prefixIcon,
     this.isEnabled,
@@ -21,23 +21,24 @@ class CustomTextFormField extends StatelessWidget {
   final Widget? suffixIcon;
   final bool? isEnabled;
   final TextEditingController? controller;
-  final Function(String?)? onSaved;
+  final Function(String?)? onSubmitted;
   final Function(String)? onChanged;
   final Function()? onTap;
-  final String? Function(String?)? validator;
+  
 
   final TextInputType? inputType;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-      child: TextFormField(
+      child: TextField(
         enabled: isEnabled,
         controller: controller,
         onTap: onTap,
-        onSaved: onSaved,
+      onSubmitted: onSubmitted,
+       
         onChanged: onChanged,
-        validator: validator,
+        
         keyboardType: inputType,
         maxLines: maxLines,
         style: const TextStyle(fontSize: 15.0),

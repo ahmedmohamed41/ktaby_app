@@ -13,7 +13,8 @@ class CustomBestSellerItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.kBooksDetailsView, extra: bookmodel);
+        GoRouter.of(context)
+            .push(AppRouter.kBooksDetailsView, extra: bookmodel);
       },
       child: Padding(
         padding: const EdgeInsets.only(left: 20, bottom: 15),
@@ -26,7 +27,7 @@ class CustomBestSellerItem extends StatelessWidget {
                 borderRadius: const BorderRadius.all(Radius.circular(15)),
                 image: DecorationImage(
                   image: NetworkImage(
-                      bookmodel.volumeInfo!.imageLinks!.smallThumbnail!
+                      bookmodel.volumeInfo!.imageLinks?.thumbnail!??'https://m.media-amazon.com/images/I/61GzazUmKyL._SY466_.jpg'
                       //'assets/images/image25454.png',
                       ),
                   fit: BoxFit.fill,
@@ -81,16 +82,17 @@ class CustomBestSellerItem extends StatelessWidget {
                               const SizedBox(
                                 width: 3,
                               ),
-                              Text(
-                                '${bookmodel.volumeInfo!.averageRating ?? 4.3}',
+                              const Text(
+                                '4.3',
+                                // '${bookmodel.volumeInfo!.averageRating ?? 4.3}',
                               ),
                               const SizedBox(
                                 width: 2,
                               ),
-                              Text(
-                                '(${bookmodel.volumeInfo!.ratingsCount ?? 6})',
-                                style: const TextStyle(
-                                    fontWeight: FontWeight.w100),
+                              const Text(
+                                '(6)',
+                                // '(${bookmodel.volumeInfo!.ratingsCount ?? 6})',
+                                style: TextStyle(fontWeight: FontWeight.w100),
                               ),
                             ],
                           ),
