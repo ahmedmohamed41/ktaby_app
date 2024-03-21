@@ -7,12 +7,8 @@ class CustomConditionalBuilder extends StatelessWidget {
   const CustomConditionalBuilder({
     super.key,
     required this.list,
-   
   });
-
   final List<BookModel> list;
- 
-
   @override
   Widget build(BuildContext context) {
     return ConditionalBuilder(
